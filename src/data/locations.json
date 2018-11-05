@@ -6,7 +6,8 @@
         "state": "TX",
         "zip": "77070",
         "url": "http://www.phothanhlong.com",
-        "pos": {"lat": 29.9999569, "lng": -95.5831807}
+        "pos": {"lat": 29.9999569, "lng": -95.5831807},
+        "type": "pho"
     },
     {
         "name": "Pho Ton Vietnamese Restaurant-Louetta",
@@ -15,7 +16,8 @@
         "state": "TX",
         "zip": "77070",
         "url": "http://www.photon.com",
-        "pos": {"lat": 29.9978045, "lng": -95.5942864}
+        "pos": {"lat": 29.9978045, "lng": -95.5942864},
+        "type": "pho"
     },
     {
         "name": "Kim's Pho & Grill",
@@ -24,7 +26,48 @@
         "state": "TX",
         "zip": "77070",
         "url": "http://www.phokim.com",
-        "pos": {"lat": 29.9999566, "lng": -95.5897468}
+        "pos": {"lat": 29.9999566, "lng": -95.5897468},
+        "type": "pho"
+    },
+    {
+        "name": "Pho An 2",
+        "street": "17565 TX-249, Houston, TX 77064",
+        "city": "Houston",
+        "state": "TX",
+        "zip": "77070",
+        "url": "http://www.phoAn.com",
+        "pos": {"lat": 29.9565355, "lng": -95.5462056},
+        "type": "pho"
+    },
+    {
+        "name": "Pho Town",
+        "street": "17565 TX-249, Houston, TX 77064",
+        "city": "Houston",
+        "state": "TX",
+        "zip": "77070",
+        "url": "http://www.phoTown.com",
+        "pos": {"lat": 29.931155, "lng": -95.5891067},
+        "type": "pho"
+    },
+    {
+        "name": "Bun bo hue Duc Chuong 2",
+        "street": "13433 Tomball Pkwy, Houston, TX 77086",
+        "city": "Houston",
+        "state": "TX",
+        "zip": "77086",
+        "url": "http://www.ducchuong.com",
+        "pos": {"lat": 29.9162733, "lng": -95.4874768},
+        "type": "bbh"
+    },
+    {
+        "name": "Bun bo hue Co Do 2",
+        "street": "14901 TX-249 #109, Houston, TX 77086",
+        "city": "Houston",
+        "state": "TX",
+        "zip": "77086",
+        "url": "http://www.codo2.com",
+        "pos": {"lat": 29.9312992, "lng": -95.5110283},
+        "type": "bbh"
     }
 
 ]

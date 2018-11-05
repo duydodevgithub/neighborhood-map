@@ -7,14 +7,15 @@ class App extends Component {
   state = {
     lat: 29.965921,
     lng: -95.5534827,
-    zoom: 12,
+    zoom: 13,
     allLocations: locations
   }
   render() {
     return (
       <div className="App">
-        <h1>Google API</h1>
+        <h1>Vietnamese Restaurant near Spring TX</h1>
         <MapDisplay
+          className="jumbotron"
           lat = {this.state.lat}
           lng = {this.state.lng}
           zoom = {this.state.zoom}
