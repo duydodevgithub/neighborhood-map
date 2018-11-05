@@ -23,8 +23,8 @@ class MapDisplay extends Component {
         }
     };
 
-    fetchPlaces = () => {
-        
+    populateInfoWindow = () => {
+        console.log("hehe");
     }
 
     render(){
@@ -40,7 +40,9 @@ class MapDisplay extends Component {
                     zoom = {this.props.zoom}
                     onReady = {this.fetchPlaces}
                 >
-                    
+                    {this.props.locations.map((element, index) => {
+                        return <Marker key={index} position={element.pos} animation={this.props.google.maps.Animation.DROP} onClick={this.populateInfoWindow}/>
+                    })}
                 </Map>
             </div>
         )  
