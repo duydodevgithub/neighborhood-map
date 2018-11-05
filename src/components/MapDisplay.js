@@ -1,8 +1,16 @@
 import React, {Component} from "react";
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from "google-maps-react";
 import './MapDisplay.css';
+import axios from 'axios';
 
-  
+const config = {
+    headers: {'Authorization': 'Bearer pi67sORoz9nhDUAbIeDVeotZyuh20OSY5c9Z-i9EuEfr3mXGD8TgsOrI8i9srOX77t6vjqknwhntUf-37yx9HpW3YqlTaH4uiUhbtDQOLt7Q61Mv0SeSk7lI3oHgW3Yx'},
+    params: {
+        method: 'get',
+        term: 'tacos'
+
+        }
+  };
 
 class MapDisplay extends Component {
     state = {
@@ -11,13 +19,23 @@ class MapDisplay extends Component {
         selectedPlace: {},
         selectedLocation: this.props.locations
     }
+
+    componentWillMount() {
+        this.props.locations.forEach(element => {
+            let url = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + element.businessId;
+            axios.get(url, config)
+            .then(response => {element.rating = response.data.rating});
+        });
+
+        
+    }
     
-    onMarkerClick = (props, marker, e) =>
+    onMarkerClick = (props, marker, e) => {
         this.setState({
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true
-    });
+    })};
 
     onMapClicked = (props) => {
         if (this.state.showingInfoWindow) {
@@ -31,6 +49,7 @@ class MapDisplay extends Component {
 
 
     chooseType = (e) => {
+        this.test(e);
         if(e.target.value !== "all") {
             var arr = this.props.locations.filter(function(object){
                 return object["type"] === e.target.value;
@@ -67,7 +86,7 @@ class MapDisplay extends Component {
                 >
                     {this.state.selectedLocation.map((element, index) => {
                         return (
-                                <Marker key={index} position={element.pos} animation={this.props.google.maps.Animation.DROP} name={element.name} url={element.url} onClick={this.onMarkerClick}/>
+                                <Marker key={index} position={element.pos} animation={this.props.google.maps.Animation.DROP} bID={element.businessId} name={element.name} url={element.url} onClick={this.onMarkerClick}/>
                                 )
                     })}
 
@@ -77,6 +96,7 @@ class MapDisplay extends Component {
                         <div>
                             <h1>{this.state.selectedPlace.name}</h1>
                             <h2>{this.state.selectedPlace.url}</h2>
+                            <h2>Rating: {this.state.selectedPlace.rating} </h2>
                             {/* {console.log(this.state.selectedPlace)} */}
                         </div>
                     </InfoWindow>
