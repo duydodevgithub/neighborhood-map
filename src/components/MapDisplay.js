@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from "google-maps-react";
 import './MapDisplay.css';
 
+  
+
 class MapDisplay extends Component {
     state = {
         showingInfoWindow: false,
@@ -9,6 +11,7 @@ class MapDisplay extends Component {
         selectedPlace: {},
         selectedLocation: this.props.locations
     }
+    
     onMarkerClick = (props, marker, e) =>
         this.setState({
         selectedPlace: props,
