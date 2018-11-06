@@ -7,6 +7,7 @@ Neighborhood Restaurant Map
 - Initially, page will display 5 restaurants.
 - Click on the marker to display the restaurant Info. Sidebar will appears with details.
 - Filtering restaurant by choosing country.
+- Reload button to refresh the API
 
 ##Technology used
 * HTML
