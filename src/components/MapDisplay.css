@@ -1,3 +1,9 @@
 #buttonList {
     margin: 20px 20px 20px 20px;
 }
+
+
+.infoWindows{
+    max-width: 250px;
+    max-height: 250px;
+}

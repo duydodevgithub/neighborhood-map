@@ -1,80 +1,18 @@
 [
     {
-        "name": "Pho Thanh Long",
-        "street": "21542 TX-249 # 1, Houston, TX 77070",
-        "city": "Houston",
-        "state": "TX",
-        "zip": "77070",
-        "url": "http://www.phothanhlong.com",
-        "pos": {"lat": 29.9999569, "lng": -95.5831807},
-        "type": "pho",
         "businessId": "pho-thanh-long-houston"
     },
     {
-        "name": "Pho Ton Vietnamese Restaurant-Louetta",
-        "street": "11910 Louetta Rd, Houston, TX 77070",
-        "city": "Houston",
-        "state": "TX",
-        "zip": "77070",
-        "url": "http://www.photon.com",
-        "pos": {"lat": 29.9978045, "lng": -95.5942864},
-        "type": "pho",
-        "businessId": "pho-ton-houston-2"
-    },
-    {
-        "name": "Kim's Pho & Grill",
-        "street": "11550 Louetta Rd #100a, Houston, TX 77070",
-        "city": "Houston",
-        "state": "TX",
-        "zip": "77070",
-        "url": "http://www.phokim.com",
-        "pos": {"lat": 29.9999566, "lng": -95.5897468},
-        "type": "pho",
         "businessId": "kims-pho-and-grill-houston"
     },
     {
-        "name": "Pho An 2",
-        "street": "17565 TX-249, Houston, TX 77064",
-        "city": "Houston",
-        "state": "TX",
-        "zip": "77070",
-        "url": "http://www.phoAn.com",
-        "pos": {"lat": 29.9565355, "lng": -95.5462056},
-        "type": "pho",
-        "businessId": "pho-an-2-houston"
+        "businessId": "fratellini-ristorante-italiano-spring"
     },
     {
-        "name": "Pho Town",
-        "street": "17565 TX-249, Houston, TX 77064",
-        "city": "Houston",
-        "state": "TX",
-        "zip": "77070",
-        "url": "http://www.phoTown.com",
-        "pos": {"lat": 29.931155, "lng": -95.5891067},
-        "type": "pho",
-        "businessId": "pho-town-houston"
+        "businessId": "sotos-cantina-houston"
     },
     {
-        "name": "Bun bo hue Duc Chuong 2",
-        "street": "13433 Tomball Pkwy, Houston, TX 77086",
-        "city": "Houston",
-        "state": "TX",
-        "zip": "77086",
-        "url": "http://www.ducchuong.com",
-        "pos": {"lat": 29.9162733, "lng": -95.4874768},
-        "type": "bbh",
-        "businessId": "bun-bo-hue-duc-chuong-2-houston"
-    },
-    {
-        "name": "Bun bo hue Co Do 2",
-        "street": "14901 TX-249 #109, Houston, TX 77086",
-        "city": "Houston",
-        "state": "TX",
-        "zip": "77086",
-        "url": "http://www.codo2.com",
-        "pos": {"lat": 29.9312992, "lng": -95.5110283},
-        "type": "bbh",
-        "businessId": "bun-bo-hue-co-do-2-houston-4"
+        "businessId": "los-cucos-mexican-cafe-cypress-houston-4"
     }
 
 ]
