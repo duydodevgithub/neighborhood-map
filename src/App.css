@@ -21,3 +21,11 @@
 button {
     margin: 10px;
 }
+
+#selectedCard {
+    background: lightblue;
+}
+
+#map {
+    height: 50%;
+}

@@ -6,7 +6,7 @@ import locations from "./data/locations.json";
 
 class App extends Component {
   state = {
-    lat: 29.965921,
+    lat: 30.00018,
     lng: -95.5534827,
     zoom: 13,
     allLocations: locations
@@ -17,10 +17,12 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid App">
-        <h1>Restaurants near Spring TX</h1>
-        <input type="button" value="Reload Page" onClick={this.reload}></input>
+        <div className="page-header">
+          <h2>Restaurants near Spring TX</h2>
+          <input type="button" value="Reload Page" onClick={this.reload}></input>
+        </div>
         <div className="row">
-          <div>
+          <div id="map" className="z-depth-1">
               <MapDisplay
               id = "mapdisplay"
               lat = {this.state.lat}

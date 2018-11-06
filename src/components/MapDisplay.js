@@ -15,6 +15,8 @@ const config = {
 
 class MapDisplay extends Component {
     state = {
+        clickId: "",
+        sidebar: false,
         display: [],
         allLocation: [],
         categories: [],
@@ -50,7 +52,7 @@ class MapDisplay extends Component {
                 $.each(categories, function(i, el){
                     if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                 });
-                // console.log(locations);
+                console.log(locations);
                 // console.log(categories);
                 if(locations.length === 0) {
                     alert("Error fetching data! Please close this box and click reload to refresh the data");
@@ -64,11 +66,17 @@ class MapDisplay extends Component {
         });
     }
     
+    toggle = () => {
+        console.log("hello")
+    }
+
     onMarkerClick = (props, marker, e) => {
         this.setState({
+        clickId: marker.value,
         selectedPlace: props,
         activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: true,
+        sidebar: true
     })};
 
     onMapClicked = (props) => {
@@ -88,30 +96,36 @@ class MapDisplay extends Component {
             })
             // console.log(arr);
             this.setState({
-                display: arr
+                display: arr,
+                sidebar: false
             })
         } else {
             this.setState({
-                display: this.state.allLocation
+                display: this.state.allLocation,
+                sidebar: false
             })
         }
     }
 
     render(){
+        const style = {
+            width: '100%',
+            height: '60%'
+          }
         const center = {
             lat: this.props.lat,
             lng: this.props.lng
         }   
         return(
             <div>
-                <ListView filter={this.chooseType} categories={this.state.categories} locations={this.state.display}/>
+                <ListView id={this.state.clickId} visibility={this.state.sidebar} filter={this.chooseType} categories={this.state.categories} locations={this.state.display}/>
                 <h4>Filtered by country</h4>
                 <button value={"all"} key={"all"} onClick={this.chooseType}>All countries</button>
                 {this.state.categories.map((element)=>{
                     return(<button value={element} key={element} onClick={this.chooseType}>{element}</button>)
                 })}
                 <Map 
-                    style={{width: '100%', height: '100%', position: 'relative'}}
+                    style={style}
                     google = {this.props.google}
                     initialCenter={center}
                     zoom = {this.props.zoom}
@@ -120,7 +134,7 @@ class MapDisplay extends Component {
                 >
                     {this.state.display.map((element, index) => {
                         return (
-                                <Marker key={element.id} review_count={element.review_count} phone={element.phone} address={element.address} position={element.coords} img={element.img} rating={element.rating} animation={this.props.google.maps.Animation.DROP} category={element.category} name={element.name} url={element.url} onClick={this.onMarkerClick}/>
+                                <Marker value={element.id} key={element.id} review_count={element.review_count} phone={element.phone} address={element.address} position={element.coords} img={element.img} rating={element.rating} animation={this.props.google.maps.Animation.DROP} category={element.category} name={element.name} url={element.url} onClick={this.onMarkerClick}/>
                                 )
                     })}
 
@@ -132,7 +146,7 @@ class MapDisplay extends Component {
                             <h4>{this.state.selectedPlace.name}</h4>
                             <h5>{this.state.selectedPlace.address}</h5>
                             <h5>Rating: {this.state.selectedPlace.rating} </h5>
-                            <button className="btn btn-info">View Details</button>
+                            {/* <button onClick={this.toggle}>View Details</button> */}
                         </div>
                     </InfoWindow>
 
