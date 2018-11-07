@@ -31,6 +31,10 @@ const styles = {
       
       })
     }
+
+    click = () => {
+        this.props.click();
+    }
   
     render() {  
       const sideList = (
@@ -41,7 +45,7 @@ const styles = {
             {this.props.locations.map((element)=>{
                 if(this.state.id === element.id) {
                   return (
-                    <div id="selectedCard" key={element.id} className="card" style={{"width":"400px"}}>
+                    <div onClick={this.click} id="selectedCard" key={element.id} className="card" style={{"width":"400px"}}>
                         <img alt={element.id} className="card-img-top card_img" src={element.img}/>
                         <div className="card-body">
                             <h4 className="card-title">{element.name}</h4>
@@ -56,7 +60,7 @@ const styles = {
                   )
                 } else {
                   return (
-                    <div id={element.id} key={element.id} className="card" style={{"width":"400px"}}>
+                    <div onClick={this.click} id={element.id} key={element.id} className="card" style={{"width":"400px"}}>
                         <img alt={element.id} className="card-img-top card_img" src={element.img}/>
                         <div className="card-body">
                             <h4 className="card-title">{element.name}</h4>

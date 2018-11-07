@@ -14,9 +14,11 @@ const config = {
   };
 
 class MapDisplay extends Component {
+    
     state = {
+        markers:[],
         clickId: "",
-        sidebar: false,
+        sidebar: true,
         display: [],
         allLocation: [],
         categories: [],
@@ -70,7 +72,10 @@ class MapDisplay extends Component {
         console.log("hello")
     }
 
+
     onMarkerClick = (props, marker, e) => {
+        console.log("props: ", props);
+        console.log("marker", marker)
         this.setState({
         clickId: marker.value,
         selectedPlace: props,
@@ -107,7 +112,12 @@ class MapDisplay extends Component {
         }
     }
 
+    click() {
+        console.log(this.id)
+    }
+
     render(){
+        var markers = [];
         const style = {
             width: '100%',
             height: '60%'
@@ -118,7 +128,7 @@ class MapDisplay extends Component {
         }   
         return(
             <div>
-                <ListView id={this.state.clickId} visibility={this.state.sidebar} filter={this.chooseType} categories={this.state.categories} locations={this.state.display}/>
+                <ListView click={this.click} id={this.state.clickId} visibility={this.state.sidebar} filter={this.chooseType} categories={this.state.categories} locations={this.state.display}/>
                 <h4>Filtered by country</h4>
                 <button value={"all"} key={"all"} onClick={this.chooseType}>All countries</button>
                 {this.state.categories.map((element)=>{
@@ -132,7 +142,11 @@ class MapDisplay extends Component {
                     onReady = {this.fetchPlaces}
                     onClick={this.onMapClicked}
                 >
-                    {this.state.display.map((element, index) => {
+                    {
+                        this.state.display.map((element, index) => {
+                            markers.push((
+                                <Marker value={element.id} key={element.id} review_count={element.review_count} phone={element.phone} address={element.address} position={element.coords} img={element.img} rating={element.rating} animation={this.props.google.maps.Animation.DROP} category={element.category} name={element.name} url={element.url} onClick={this.onMarkerClick}/>
+                                ));
                         return (
                                 <Marker value={element.id} key={element.id} review_count={element.review_count} phone={element.phone} address={element.address} position={element.coords} img={element.img} rating={element.rating} animation={this.props.google.maps.Animation.DROP} category={element.category} name={element.name} url={element.url} onClick={this.onMarkerClick}/>
                                 )
